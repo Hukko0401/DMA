@@ -103,3 +103,9 @@ def predict(data: dict):
             "id": data.get("id"),
             "error": str(e)
         }
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "model_loaded": model is not None
+    }
